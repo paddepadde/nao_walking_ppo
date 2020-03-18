@@ -1,0 +1,38 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.04696484440630892 0.9911804618003457 0.12391769661813602 3.8602869617125832
+  position -1.7069226884543949 1.4226535916422132 -3.1945875177327236
+}
+Background {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  translation 4 0 0
+  size 15 5
+}
+DEF NAO Nao {
+  translation -0.0013300017973704465 0.3325519412537946 -0.02123492605989389
+  rotation -0.998525038068186 0.03626953631392702 0.04040135005789195 1.5721133016902167
+  degreeOfFreedom 21
+  controller "ppo_walking"
+  supervisor TRUE
+  bodySlot [
+    DEF CoG Transform {
+      translation 0 0 -0.05
+    }
+  ]
+  leftFootSlot [
+    DEF LeftF Transform {
+    }
+  ]
+  rightFootSlot [
+    DEF RightF Transform {
+    }
+  ]
+}
+Supervisor {
+  controller "ppo_supervisor"
+}
