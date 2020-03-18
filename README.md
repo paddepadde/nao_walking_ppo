@@ -1,6 +1,6 @@
 # Learning to Walk with Proximate Policy Optimization
 
-This repository contains the code of a robotics project if did for a university course. 
+This repository contains the code of a robotics project I did for a machine learning university course. 
 The end-goal was to teach the NAO robot to walk by directly controling the robot joint angles in a reinforcement learning setting. 
 
 The robot is trained by using the an Actor-Critic style architecture in combination with the Proximate Policy Optimization (PPO) [(Schulman et al., 2017)](https://arxiv.org/abs/1707.06347) reinforcement learning algorithm. The neural networks and learning procedure is implemented with Tensorflow. 
