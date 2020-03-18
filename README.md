@@ -28,7 +28,7 @@ An episode in the simulation repeats the same four steps in a loop and collects 
 * __Build State__: Build the state vector _s_ the robot is in. The vector contains the episode timestep, sensor values from the integrated gyroscope, accelerometer, position values, as well as robot joint. 
 * __Act__: Get the angle values _a_ for the current state of the robot. This depends on the learned policy _π(a|s)_. 
 * __Compute Reward__: Compute the reward _r_ that the robot receives for the action. Tested reward components conatined positive reward for moving forward on the x-axis, not falling over, as well as negative reward for falling over, excessive joint movement, and setting unreachable angles. 
-* __Fall Detection__: End the episode if the robot y-position crosses a fixed threshold. 
+* __Episode End Detection__: End the episode if the robot y-position crosses a fixed threshold or the number of timesteps extended a fixed threshold. 
 
 After a certain number of simulation samples are collected, the actor-critic neural networks controlling the robot are trained with the collected samples. See the included PPO paper at the start of the README for details on the training procedure. 
 
@@ -37,17 +37,21 @@ After a certain number of simulation samples are collected, the actor-critic neu
 
 Due to the high sample-complexity of the PPO algorithm and the high computational effort of the simulator the training of the robot could take up to several days. I trained the robot with reward functions of different complexity and scaling. These animations show some of the learned control policies: 
 
-__Some Results:__
+__Animations of the Results:__
 
 <img src="https://i.imgur.com/pDDrpUt.gif" width="300"> <img src="https://i.imgur.com/bhKBZWf.gif" width="300">
 
 <img src="https://i.imgur.com/QojydTD.gif" width="300"> <img src="https://i.imgur.com/xUft4MM.gif" width="300">
 
-Most of the learned control policies are definitly close to a style human walking. Because real walking is never shown to the it developed weird walking styles in some experiments (2nd animation) or characteristics (e.g. excessive arm movement).  
+Most of the learned control policies are definitly close to a style human walking. Because real walking is never shown to the Robot, he developes weird walking styles in some experiments (2nd animation) or unnatural walking characteristics (e.g. excessive arm movement).  
 
 
 ## Project Structure 
 
-TODO
+* `/controllers/ppo_supervisor` Webots controller for simulation management. 
+* `/controllers/ppo_walking` Webots robot walking controller (state, actions, reward computation). 
+* `/nao_walking` Webots file for world
 
+## Instructions 
 
+Instructions for setting up the project are included in the `INSTRUCTIONS.md` file in the root directory of the repository.  
